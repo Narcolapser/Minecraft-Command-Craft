@@ -1,7 +1,13 @@
 import sys
 
 def compile(commands):
-	ret = summon + form_command(commands)
+	#ret = summon + form_command(commands)
+	if len(commands) == 0:
+		return ""
+	command = commands.pop()
+	passenger = form_command(commands)
+	ret = summon + base.replace("VAL_COMMAND",command)
+	ret = ret.replace("VAL_PASSENGER",passenger)
 	return ret
 
 def form_command(commands):
@@ -9,7 +15,7 @@ def form_command(commands):
 		return final_pass
 	command = commands.pop()
 	passenger = form_command(commands)
-	ret = base.replace("VAL_COMMAND",command)
+	ret = inner.replace("VAL_COMMAND",command)
 	ret = ret.replace("VAL_PASSENGER",passenger)
 	return ret
 
@@ -30,22 +36,29 @@ def form_inner_command(command,passenger):
 
 summon = "/summon falling_block ~ ~1 ~ "
 
-base = "{Block:command_block,Time:1,TileEntityData:VAL_COMMAND,Passengers:[VAL_PASSENGER]}"
+inner = "{id:falling_block,Block:command_block,Time:1,TileEntityData:{VAL_COMMAND},Passengers:[VAL_PASSENGER]}"
 
-fruition = "Command:/fill ~ ~-{0} ~-1 ~ ~{0} ~-1 redstone_block"
+base = "{Block:command_block,Time:1,TileEntityData:{VAL_COMMAND},Passengers:[VAL_PASSENGER]}"
+
+#fruition = "Command:/fill ~ ~-{0} ~-1 ~ ~{0} ~-1 redstone_block"
 
 final_pass = """{id:falling_block,Block:command_block,Time:1,TileEntityData:{Command:/fill ~ ~-3 ~-1 ~ ~50 ~-1 redstone_block},Passengers:[{id:falling_block,Block:redstone_block,Time:1}]}"""
 
-commands = ["Command:/setblock ~5 ~1 ~8 glass_pane" , "Command:/fill ~5 ~-2 ~5 ~15 ~5 ~15 planks 0 hollow"]
+#commands = ["Command:/setblock ~5 ~1 ~8 glass_pane" , "Command:/fill ~5 ~-2 ~5 ~15 ~5 ~15 planks 0 hollow"]
 
-result = summon + " "
+commands = ["Command:/" + i.strip() for i in open(sys.argv[1]).readlines()]
+print(commands)
 
-#print(summon + " " + recurse(commands,1))
 print (compile(commands))
 
 
 """
 
 /summon falling_block ~ ~1 ~ {Block:command_block,Time:1,TileEntityData:{Command:/fill ~5 ~-2 ~5 ~15 ~5 ~15 planks 0 hollow},Passengers:[{id:falling_block,Block:command_block,Time:1,TileEntityData:{Command:/setblock ~5 ~1 ~8 glass_pane},Passengers:[{id:falling_block,Block:command_block,Time:1,TileEntityData:{Command:/fill ~ ~-3 ~-1 ~ ~50 ~-1 redstone_block},Passengers:[{id:falling_block,Block:redstone_block,Time:1}]}]}]}
+/summon falling_block ~ ~1 ~ {Block:command_block,Time:1,TileEntityData:{Command:/fill ~5 ~-2 ~5 ~15 ~5 ~15 planks 0 hollow},Passengers:[{id:falling_block,Block:command_block,Time:1,TileEntityData:{Command:/setblock ~5 ~1 ~8 glass_pane},Passengers:[{id:falling_block,Block:command_block,Time:1,TileEntityData:{Command:/fill ~ ~-3 ~-1 ~ ~50 ~-1 redstone_block},Passengers:[{id:falling_block,Block:redstone_block,Time:1}]}]}]}
+/summon falling_block ~ ~1 ~ {Block:command_block,Time:1,TileEntityData:{Command:/fill ~5 ~-2 ~5 ~15 ~5 ~15 planks 0 hollow},Passengers:[{id:falling_block,Block:command_block,Time:1,TileEntityData:{Command:/setblock ~5 ~1 ~8 glass_pane},Passengers:[{id:falling_block,Block:command_block,Time:1,TileEntityData:{Command:/fill ~ ~-3 ~-1 ~ ~50 ~-1 redstone_block},Passengers:[{id:falling_block,Block:redstone_block,Time:1}]}]}]}
+
+
+
 
 """
