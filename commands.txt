@@ -1,0 +1,4 @@
+fill ~5 ~-2 ~5 ~25 ~3 ~5 stone
+fill ~5 ~-1 ~5 ~5 ~4 ~25 stone
+fill ~25 ~ ~25 ~5 ~5 ~25 stone
+fill ~25 ~1 ~25 ~25 ~6 ~5 stone
