@@ -1,6 +1,6 @@
 import sys
 
-def compile(commands):
+def mc_compile(commands):
 	#ret = summon + form_command(commands)
 	if len(commands) == 0:
 		return ""
@@ -29,10 +29,17 @@ final_pass = """{id:falling_block,Block:command_block,Time:1,TileEntityData:{Com
 
 #commands = ["Command:/setblock ~5 ~1 ~8 glass_pane" , "Command:/fill ~5 ~-2 ~5 ~15 ~5 ~15 planks 0 hollow"]
 
-commands = ["Command:/" + i.strip() for i in open(sys.argv[1]).readlines()]
-print(commands)
+if __name__ == "__main__":
+	if len(sys.argv) < 3:
+		print("ERROR: 2 arguments needed. The file to read in from, and the file to out put to.")
+		sys.exit()
 
-print (compile(commands))
+	commands = ["Command:/" + i.strip() for i in open(sys.argv[1]).readlines()]
+	#print(commands)
+
+	with open(sys.argv[2],'w') as outs:
+		outs.write(mc_compile(commands))
+
 
 
 """
