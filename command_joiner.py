@@ -1,12 +1,17 @@
 import sys
 
-def mc_compile(commands):
+def mc_compile(commands,offset_summon=None):
 	#ret = summon + form_command(commands)
 	if len(commands) == 0:
 		return ""
 	command = commands.pop()
 	passenger = form_command(commands,1)
-	ret = summon + base.replace("VAL_COMMAND",command)
+	if offset_summon:
+		ret = osummon.format(offset_summon[0],
+			offset_summon[1],
+			offset_summon[2]) + base.replace("VAL_COMMAND",command)
+	else:
+		ret = summon + base.replace("VAL_COMMAND",command)
 	ret = ret.replace("VAL_PASSENGER",passenger)
 	return ret
 
@@ -20,6 +25,7 @@ def form_command(commands,depth):
 	return ret
 
 summon = "/summon falling_block ~ ~1 ~ "
+osummon = "/summon falling_block ~{0} ~{1} ~{2} "
 
 inner = "{id:falling_block,Block:command_block,Time:1,TileEntityData:{VAL_COMMAND},Passengers:[VAL_PASSENGER]}"
 

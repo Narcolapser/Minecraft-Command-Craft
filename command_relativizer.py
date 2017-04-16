@@ -15,10 +15,13 @@ def findTriads(val):
 			triad_offset -= 1
 			continue
 		if p.isdigit():
-			if parts[i+1].isdigit():
-				if parts[i+2].isdigit():
-					triad_offset = 2
-					triads.append(i)
+			try:
+				if parts[i+1].isdigit():
+					if parts[i+2].isdigit():
+						triad_offset = 2
+						triads.append(i)
+			except:
+				pass
 #	print(triads)
 	return triads
 
@@ -34,15 +37,16 @@ def offsetTriads(val,offsets):
 		y = int(parts[triad + 1])
 		z = int(parts[triad + 2])
 		
-		parts[triad + 0] = str(x + offsets[0])
-		parts[triad + 1] = str(y + offsets[1])
-		parts[triad + 2] = str(z + offsets[2])
+		parts[triad + 0] = "~" + str(x + offsets[0])
+		parts[triad + 1] = "~" + str(y + offsets[1])
+		parts[triad + 2] = "~" + str(z + offsets[2])
 		
 	ret = ' '.join(parts)
 	#print(ret)
 	return ret
 	
 def relativeTriads(val):
+	return val
 	triads = findTriads(val)
 	#if there are no triads, no work needs to be done.
 	if len(triads) == 0:
