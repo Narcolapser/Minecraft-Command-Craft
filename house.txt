@@ -1,58 +1,58 @@
 #foundation
-##fill 10 0 10 0 0 0 stone
-##fill 8 1 8 8 1 2 fence
-##fill 8 1 8 2 1 8 fence
-##fill 2 1 2 8 1 2 fence
-##fill 2 1 2 2 1 8 fence
-##
-###windows and door
-##setblock 3 4 2 glass_pane
-##setblock 7 4 2 glass_pane
-##setblock 5 3 2 wooden_door
-##setblock 5 4 2 wooden_door 8
-##fill 5 3 2 5 4 2 air 0 replace
-##
-###Entry stairs 
-##setblock 5 2 1 oak_stairs 2
-##setblock 5 1 0 oak_stairs 2
-##
-###torches
-##setblock 4 4 1 torch facing=north
-##setblock 6 4 1 torch facing=north
-##setblock 4 4 3 torch facing=south
-##setblock 6 4 3 torch facing=south
-##
-###inner stairs
-##setblock 6 3 3 oak_stairs facing=east
-##setblock 7 4 4 oak_stairs facing=south
-##setblock 7 5 5 oak_stairs facing=south
-##setblock 7 4 5 oak_stairs 7
-##setblock 7 3 4 planks
-##setblock 7 3 3 planks
-##
-###upstairs
-##fill 7 5 6 3 5 7 planks
-##
-###root
-##fill 3 8 3 7 8 7 air 0 replace
-##fill 1 9 1 1 9 9 log 8
-##fill 2 10 1 2 10 9 log 8
-##fill 3 11 1 3 11 9 log 8
-##fill 4 12 1 4 12 9 log 8
-##fill 5 13 1 5 13 9 log 8
-##fill 6 12 1 6 12 9 log 8
-##fill 7 11 1 7 11 9 log 8
-##fill 8 10 1 8 10 9 log 8
-##fill 9 9 1 9 9 9 log 8
-##fill 2 9 2 8 9 2 planks
-##fill 3 10 2 7 10 2 planks
-##fill 4 11 2 6 11 2 planks
-##fill 5 12 2 5 12 2 planks
-##fill 2 9 8 8 9 8 planks
-##fill 3 10 8 8 10 8 planks
-##fill 4 11 8 6 11 8 planks
-##fill 5 12 8 5 12 8 planks
-##
-##
+fill 10 0 10 0 0 0 stone
+fill 8 1 8 8 1 2 fence
+fill 8 1 8 2 1 8 fence
+fill 2 1 2 8 1 2 fence
+fill 2 1 2 2 1 8 fence
+
+#windows and door
+setblock 3 4 2 glass_pane
+setblock 7 4 2 glass_pane
+setblock 5 3 2 wooden_door
+setblock 5 4 2 wooden_door 8
+fill 5 3 2 5 4 2 air 0 replace
+
+#Entry stairs 
+setblock 5 2 1 oak_stairs 2
+setblock 5 1 0 oak_stairs 2
+
+#torches
+setblock 4 4 1 torch facing=north
+setblock 6 4 1 torch facing=north
+setblock 4 4 3 torch facing=south
+setblock 6 4 3 torch facing=south
+
+#inner stairs
+setblock 6 3 3 oak_stairs facing=east
+setblock 7 4 4 oak_stairs facing=south
+setblock 7 5 5 oak_stairs facing=south
+setblock 7 4 5 oak_stairs 7
+setblock 7 3 4 planks
+setblock 7 3 3 planks
+
+#upstairs
+fill 7 5 6 3 5 7 planks
+
+#root
+fill 3 8 3 7 8 7 air 0 replace
+fill 1 9 1 1 9 9 log 8
+fill 2 10 1 2 10 9 log 8
+fill 3 11 1 3 11 9 log 8
+fill 4 12 1 4 12 9 log 8
+fill 5 13 1 5 13 9 log 8
+fill 6 12 1 6 12 9 log 8
+fill 7 11 1 7 11 9 log 8
+fill 8 10 1 8 10 9 log 8
+fill 9 9 1 9 9 9 log 8
+fill 2 9 2 8 9 2 planks
+fill 3 10 2 7 10 2 planks
+fill 4 11 2 6 11 2 planks
+fill 5 12 2 5 12 2 planks
+fill 2 9 8 8 9 8 planks
+fill 3 10 8 8 10 8 planks
+fill 4 11 8 6 11 8 planks
+fill 5 12 8 5 12 8 planks
+
+
 fill 2 2 2 8 8 8 planks 0 hollow
-##fill 0 0 0 10 10 10 air 0 replace
+fill 0 0 0 10 10 10 air 0 replace
