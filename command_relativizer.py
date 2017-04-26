@@ -6,6 +6,13 @@ import sys
 #This script will take a command that uses absolute coordinates and translate them into relative
 #coordinates with an offset specified.
 
+def is_digit(n):
+	try:
+		int(n)
+		return True
+	except ValueError:
+		return  False
+
 def findTriads(val):
 	parts = val.split()
 	triads = []
@@ -14,10 +21,10 @@ def findTriads(val):
 		if triad_offset:
 			triad_offset -= 1
 			continue
-		if p.isdigit():
+		if is_digit(p):
 			try:
-				if parts[i+1].isdigit():
-					if parts[i+2].isdigit():
+				if is_digit(parts[i+1]):
+					if is_digit(parts[i+2]):
 						triad_offset = 2
 						triads.append(i)
 			except:

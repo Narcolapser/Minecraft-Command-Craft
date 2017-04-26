@@ -20,7 +20,7 @@ if __name__ == "__main__":
 	coms2 = []
 	for i,c in enumerate(commands):
 #		print(c)
-		coms2.append(relativeCommand(c,[1,i-len(commands),1]))
+		coms2.append(relativeCommand(c,[1,i-len(commands),2]))
 	ret = mc_compile(coms2)
 	print(ret)
 	
