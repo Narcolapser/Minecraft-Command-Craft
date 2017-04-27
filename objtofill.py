@@ -32,7 +32,7 @@ def getBounds(verts):
 	return [x,y,z,mx,my,mz]
 
 def makeFill(verts):
-	return "fill {0} {1} {2} {3} {4} {5} quartz_block".format(verts[0],verts[1],verts[2],verts[3],verts[4],verts[5])
+	return "fill {0} {1} {2} {3} {4} {5} quartz_block 2".format(verts[0],verts[1],verts[2],verts[3],verts[4],verts[5])
 
 
 if __name__ == "__main__":
@@ -40,7 +40,7 @@ if __name__ == "__main__":
 #		objects = [i for i in open(sys.argv[2]).read().split("\no")]
 #	else:
 #		objects = [i for i in open("house.obj").read().split("\no")]
-	objects = [i for i in open("parthanon.obj").read().split("\no")]
+	objects = [i for i in open("tower.obj").read().split("\no")]
 	for o in objects[1:]:
 	#	try:
 		print(makeFill(getBounds(getVerts(o))))

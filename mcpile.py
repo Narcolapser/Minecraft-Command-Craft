@@ -11,7 +11,7 @@ if __name__ == "__main__":
 	width = 3
 	clear_tower = "Command:" + mc_compile([final_tower[0].format(height=height,width=width)],[-2,0,0])
 	#print(clear_tower)
-#	commands.append(clear_tower)
+	commands.append(clear_tower)
 #	ct = "Command:/summon falling_block ~-3 ~1 ~ {Block:command_block,Time:1,TileEntityData:{Command:/fill ~-3 ~1 ~2 ~ ~ ~-1 air 0 replace},Passengers:[{id:falling_block,Block:command_block,Time:1,TileEntityData:{Command:/fill ~ ~-1 ~-1 ~ ~ ~-1 redstone_block},Passengers:[{id:falling_block,Block:redstone_block,Time:1}]}]}"
 #	commands.append(ct)
 	#commands.append("Command:/fill ~ ~{0} ~ ~ ~ ~-1 air 0 replace".format(num))
