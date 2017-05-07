@@ -40,7 +40,8 @@ if __name__ == "__main__":
 #		objects = [i for i in open(sys.argv[2]).read().split("\no")]
 #	else:
 #		objects = [i for i in open("house.obj").read().split("\no")]
-	objects = [i for i in open("tower.obj").read().split("\no")]
+#	print(sys.argv)
+	objects = [i for i in open(sys.argv[1]).read().split("\no")]
 	for o in objects[1:]:
 	#	try:
 		print(makeFill(getBounds(getVerts(o))))
