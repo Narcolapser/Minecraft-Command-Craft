@@ -31,8 +31,12 @@ def getBounds(verts):
 	
 	return [x,y,z,mx,my,mz]
 
-def makeFill(verts):
-	return "fill {0} {1} {2} {3} {4} {5} quartz_block 2".format(verts[0],verts[1],verts[2],verts[3],verts[4],verts[5])
+#o Stone.105_Cube.106
+def getBlockName(obj):
+	return obj.split('\n')[0].split(' ')[1].split('.')[0]
+
+def makeFill(verts,name):
+	return "fill {0} {1} {2} {3} {4} {5} {6}".format(verts[0],verts[1],verts[2],verts[3],verts[4],verts[5],name)
 
 
 if __name__ == "__main__":
@@ -44,7 +48,9 @@ if __name__ == "__main__":
 	objects = [i for i in open(sys.argv[1]).read().split("\no")]
 	for o in objects[1:]:
 	#	try:
-		print(makeFill(getBounds(getVerts(o))))
+		verts = getBounds(getVerts(o))
+		block_name = getBlockName(o)
+		print(makeFill(verts,block_name))
 		#makeFill(getBounds(getVerts(o)))
 	#	except Exception as e:
 	#		print(o,e)

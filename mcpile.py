@@ -19,8 +19,6 @@ if __name__ == "__main__":
 	shift = 1
 	tower_num = len(commands) / (max_height-2) + 1
 	first_tower_modifier = len(commands) % (max_height - 2)
-	print(len(commands) % (max_height - 2))
-	#if max_height - first_tower_modifier > 2:
 	if first_tower_modifier < 2:
 		first_tower_modifier = 1
 	else:
