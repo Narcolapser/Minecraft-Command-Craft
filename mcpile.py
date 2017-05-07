@@ -8,13 +8,23 @@ if __name__ == "__main__":
 	#commands = open(sys.argv[1]).readlines()
 	commands = ["Command:/" + i.strip() for i in open(sys.argv[1]).readlines() if (i[0] != "#" and len(i) > 1)]
 	height = len(commands)
-	width = 3
+	width = ((height / 50) + 1) * 2 + 1
+	if height > 50:
+		height = 50
 	clear_tower = "Command:" + mc_compile([final_tower[0].format(height=height,width=width)],[-2,0,0])
-	#print(clear_tower)
 	commands.append(clear_tower)
-#	ct = "Command:/summon falling_block ~-3 ~1 ~ {Block:command_block,Time:1,TileEntityData:{Command:/fill ~-3 ~1 ~2 ~ ~ ~-1 air 0 replace},Passengers:[{id:falling_block,Block:command_block,Time:1,TileEntityData:{Command:/fill ~ ~-1 ~-1 ~ ~ ~-1 redstone_block},Passengers:[{id:falling_block,Block:redstone_block,Time:1}]}]}"
-#	commands.append(ct)
-	#commands.append("Command:/fill ~ ~{0} ~ ~ ~ ~-1 air 0 replace".format(num))
+
+	shift = width -1
+
+	while len(commands) > 49:
+		print("towering")
+		inners = commands[-49:]
+		del commands[-49:]
+		inner_tower = "Command:" + mc_compile(inners,[-shift,0,0])
+		shift -= 2
+		commands.append(inner_tower)
+	#print(clear_tower)
+
 #	if len(commands) > 50:
 		
 	coms2 = []
@@ -23,5 +33,3 @@ if __name__ == "__main__":
 		coms2.append(relativeCommand(c,[1,i-len(commands),2]))
 	ret = mc_compile(coms2)
 	print(ret)
-	
-	#/fill ~ ~-43 ~ ~ ~ ~-1 air 0 replace
