@@ -1,4 +1,5 @@
 import sys
+import json
 
 def getVerts(obj):
 	raw_verts = [i[2:] for i in obj.split('\n') 
@@ -32,24 +33,29 @@ def getBounds(verts):
 	return [x,y,z,mx,my,mz]
 
 #o Stone.105_Cube.106
-def getBlockName(obj):
-	return obj.split('\n')[0].split(' ')[1].split('.')[0]
+def getBlockName(obj,block_template):
+	name = obj.split('\n')[0].split(' ')[1].split('.')[0]
+	if name in block_template:
+		name = block_template[name]
+	return name
 
 def makeFill(verts,name):
 	return "fill {0} {1} {2} {3} {4} {5} {6}".format(verts[0],verts[1],verts[2],verts[3],verts[4],verts[5],name)
 
 
 if __name__ == "__main__":
-#	if len(sys.argv) > 2:
-#		objects = [i for i in open(sys.argv[2]).read().split("\no")]
-#	else:
-#		objects = [i for i in open("house.obj").read().split("\no")]
 #	print(sys.argv)
+	if len(sys.argv) == 1:
+		print("1 argument is needed: the name of the obj you want to translat. a second argument is optional, the name of the block transform file.")
+		sys.exit()
+	block_template = {}
+	if len(sys.argv) == 3:
+		block_template = json.loads(open(sys.argv[2]).read())
 	objects = [i for i in open(sys.argv[1]).read().split("\no")]
 	for o in objects[1:]:
 	#	try:
 		verts = getBounds(getVerts(o))
-		block_name = getBlockName(o)
+		block_name = getBlockName(o,block_template)
 		print(makeFill(verts,block_name))
 		#makeFill(getBounds(getVerts(o)))
 	#	except Exception as e:
