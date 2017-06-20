@@ -1,0 +1,9 @@
+{
+	"Cube":"stone",
+	"Stone":"quartz_block",
+	"Door":"iron_block",
+	"pistonleft":"sticky_piston facing=east",
+	"pistonright":"sticky_piston facing=west",
+	"door_closer":"command_block",
+	"door_opener":"command_block"
+}
